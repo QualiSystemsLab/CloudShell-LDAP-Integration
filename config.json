@@ -1,0 +1,20 @@
+{
+	"ldap_connection":"ldap://ldap.forumsys.com",
+	"ldap_base_DN":["ou=mathematicians,dc=example,dc=com", "ou=scientists,dc=example,dc=com"],
+	"ldap_use_auth":0,
+    "ldap_username":"read-only-admin",
+	"ldap_password":"password",
+	"ldap_main_group":"Sales",
+    "qs_server_hostname":"localhost",
+	"qs_admin_username":"admin",
+	"qs_admin_password":"YWRtaW4=",
+	"new_user_default_password":"password1234",
+	"use_new_user_default_group":1,
+    "new_user_default_group":"all",
+	"log_file_path":".\\ldap_import_log.txt",
+	"qs_use_whitelist":1,
+	"qs_whitelist":["also_me1", "also_me2", "also_me3", "also_me4"],
+    "use_subgroups":1,
+    "ldap_subgroups":["ou=mathematicians,dc=example,dc=com", "ou=scientist,dc=example,dc=com"],
+    "qs_subgroups":["Math Group", "Science Group"]
+}
