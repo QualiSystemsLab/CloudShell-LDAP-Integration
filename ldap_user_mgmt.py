@@ -175,7 +175,7 @@ def main():
         # end for Each - putting all new users into groups
     # end ldap import
 
-    if local.configs["do_deactivation"] == 1:
+    if local.configs["do_deactivation"] == 1 and local.configs["do_ldap_import"]:
         local.write2log('-- Running deactivation subroutine')
         # get updated cs_list
         cs_list = local.load_cloudshell_users()
