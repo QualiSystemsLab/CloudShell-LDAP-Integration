@@ -6,7 +6,7 @@
     "qs_server_hostname":"localhost",
 	"qs_admin_username":"admin",
 	"qs_admin_password":"YWRtaW4=",
-	"log_file_path":".\\ldap_import_log.txt",
+	"log_file_path":".\\ldap_user_mgmt_log.txt",
 	"qs_use_whitelist":1,
 	"qs_whitelist":["also_me1", "also_me2", "also_me3", "also_me4"],
 	"do_ldap_import":1,
