@@ -12,7 +12,7 @@ import ldap
 
 
 class ldapimport(object):
-    """Used to align CloudShell users/groups with Active Directory Users"""
+    """Used to align CloudShell users/groups with LDAP Group Users"""
 
     def __init__(self):
         """
@@ -37,7 +37,7 @@ class ldapimport(object):
                                                       domain="Global")
 
     # Active Directory Commands
-    def ldap_query(self, ldap_connection, ldap_user, ldap_pw, ldap_query_str, auth):
+    def ldap_query(self, ldap_connection, ldap_user, ldap_pw, ldap_query_str, auth):  # use = to for optional
         """
         Returns a group list from an Active Directory Query
         :param self:
@@ -61,8 +61,8 @@ class ldapimport(object):
 
         ad_list = ldap_con.read_s(ldap_query_str)
         for name in ad_list["uniqueMember"]:
-            parse = name.split(",", 1)
-            trash, ldap_name = parse[0].split('uid=')
+            parse = name.split(",", 1)  # this is the first line for split mod
+            trash, ldap_name = parse[0].split('uid=')  # this is the 2nd line for split mod
             name_list.append(ldap_name)
 
         return name_list
@@ -106,7 +106,7 @@ class ldapimport(object):
     def is_admin(self, user_name):
         my_user_groups = self.cs_session.GetUserDetails(user_name).Groups
         for x in my_user_groups:
-            if x.Name == "System Administrators":
+            if x.Name == "System Administrators" or x.Name == "Domain Administrators":
                 return True
         else:
             return False

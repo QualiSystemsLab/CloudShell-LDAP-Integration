@@ -3,7 +3,7 @@ This project syncs specific LDAP groups with specific CloudShell user groups, so
 
 ## Instructions
 
-The main python script is designed to loop through the “ldap_import_DN” list, creating new CloudShell users for any ID’s that are on the list, but not in CloudShell.
+The main python script is designed to loop through the “ldap_import_DN” list, creating new CloudShell users for any ID’s that are on the list, but not currently in CloudShell.
  - They users will be assigned the default password.
  - Optionally they will be assigned to a default CloudShell user group.
 

@@ -9,7 +9,7 @@
 	"log_file_path":".\\ldap_user_mgmt_log.txt",
 	"qs_use_whitelist":1,
 	"qs_whitelist":["also_me1", "also_me2", "also_me3", "also_me4"],
-	"do_ldap_import":1,
+	"do_ldap_import":0,
     "ldap_import_DN":["ou=mathematicians,dc=example,dc=com", "ou=scientists,dc=example,dc=com"],
 	"new_user_default_password":"password1234",
 	"use_new_user_default_group":1,
