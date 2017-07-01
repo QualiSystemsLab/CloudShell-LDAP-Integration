@@ -5,7 +5,6 @@ error_log = []
 t_user = 'unit_test_user'
 user_created = 0
 
-test_runner.write2log('** Unit Test Testing Start **')
 
 # Get user list from CloudShell
 try:
@@ -127,7 +126,7 @@ for each in test_runner.configs['ldap_subgroups']:
         print 'Error on subgroup ' + each
 
 # last thing, print out error_log
-test_runner.write2log('** completed unit test **')
+
 print '\n>> Unit test complete'
 if len(error_log) > 0:
     print 'Errors during run:'

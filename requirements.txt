@@ -1,0 +1,2 @@
+python-ldap==2.4.40
+cloudshell-automation-api==8.0.0.77

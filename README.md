@@ -1,18 +1,19 @@
 # CloudShell-LDAP-Integration
-This project syncs specific LDAP groups with specific CloudShell user groups, so CloudShell and LDAP remain synced when there are changes to user information in LDAP
+This project syncs specific LDAP groups with specific CloudShell user groups, so CloudShell and LDAP remain synced when there are changes to user membership in LDAP
 
 ## Instructions
 
 The main python script is designed to loop through the “ldap_import_DN” list, creating new CloudShell users for any ID’s that are on the list, but not currently in CloudShell.
  - They users will be assigned the default password.
  - Optionally they will be assigned to a default CloudShell user group.
+ - This functionality can be disabled
 
 In addition, after the main import is ran, all CloudShell users can be validated against the combined list of users from all imports DNs, and deactivated, excluding system admins and users in the whitelist.
-* Note - this does not work without doing the import first - it’s an option of import
+* Note - this does not work without doing the import first - it is an option of import
 
 Last the system can optionally arrange users against a list of DN groups.
 The script will pull a list of users from each of the ldap groups, and if that user exists in CloudShell, will then assign them to the corresponding CloudShell Group.
-It will also attempt to remove any users that don’t belong in that CloudShell group, excluding system admins and whitelist users.
+It will also attempt to remove any users that don’t belong in that CloudShell group, excluding system admins and whitelisted users.
 
 
 ## JSON Config File:
@@ -35,6 +36,5 @@ It will also attempt to remove any users that don’t belong in that CloudShell 
 * new_user_default_group - name of the CloudShell group to assign new users too
 * do_deactivation - 1 for true, run deactivation routine of users not found in the import lookups
 * use_subgroups - 1 for true, use the ldap_subgroup list to assign users to CloudShell Groups
-* ldap_subgroups - list of additional DN’s to lookup and assign to CloudShell Groups
-	* 1 to 1 match of the list in qs_subgroups - must be evenly matched
-* qs_subgroups - list of CloudShell groups, matched to ldap_subgroups
+* subgroup_listing - Dictionary pairing:  Key = CloudShell Group, Entry = LDAP Query String
+    * Example:  "Test Team": "ou=qatesters,dc=example,dc=com" where 'Test Team' is the name of the Group in CloudShell
