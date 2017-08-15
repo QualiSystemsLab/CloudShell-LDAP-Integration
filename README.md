@@ -26,15 +26,15 @@ It will also attempt to remove any users that don’t belong in that CloudShell 
 * qs_admin_username - the CloudShell Admin account name
 * qs_admin_password - the CloudShell Admin password, base64 hash
 * log_file_path - where you would like the log to be written, including name of file
-* qs_use_whitelist - 1 for true, use the qs_whitelist to exclude filtering of users
+* qs_use_whitelist - boolean, use the qs_whitelist to exclude filtering of users
 * qs_whitelist - list of CloudShell usernames for exclusion
-* do_ldap_import - 1 for true, use the ldap_import_DN list to create users in CloudShell
+* do_ldap_import - boolean, use the ldap_import_DN list to create users in CloudShell
 * ldap_import_DN - list of LDAP Group (ou) quires to extract users from
 	* in the code splits by uniqueMember & uid= can be modified if needed (line 62)
 * new_user_default_password - the default password for any user created in CloudShell by the script
-* use_new_user_default_group - 1 for true, assign a new user to a default group when created
+* use_new_user_default_group - boolean, assign a new user to a default group when created
 * new_user_default_group - name of the CloudShell group to assign new users too
-* do_deactivation - 1 for true, run deactivation routine of users not found in the import lookups
-* use_subgroups - 1 for true, use the ldap_subgroup list to assign users to CloudShell Groups
+* do_deactivation - boolean, run deactivation routine of users not found in the import lookups
+* use_subgroups - boolean, use the ldap_subgroup list to assign users to CloudShell Groups
 * subgroup_listing - Dictionary pairing:  Key = CloudShell Group, Entry = LDAP Query String
     * Example:  "Test Team": "ou=qatesters,dc=example,dc=com" where 'Test Team' is the name of the Group in CloudShell
