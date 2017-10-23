@@ -1,0 +1,215 @@
+2017-06-30 14:38:58,997:INFO:Starting LDAP Session
+2017-06-30 14:39:03,459:INFO:Running LDAP user import subroutine
+2017-06-30 14:39:10,239:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 15:49:41,804:INFO:Starting LDAP Session
+2017-06-30 15:49:45,773:INFO:Running LDAP user import subroutine
+2017-06-30 15:49:50,291:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 15:49:58,822:INFO:Created new CloudShell User: euclid
+2017-06-30 15:57:41,365:INFO:Starting LDAP Session
+2017-06-30 15:57:41,365:INFO:Running LDAP user import subroutine
+2017-06-30 15:57:41,365:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 15:57:41,752:INFO:Created new CloudShell User: riemann
+2017-06-30 15:57:41,837:INFO:Added riemann to all
+2017-06-30 15:57:41,917:INFO:Created new CloudShell User: euler
+2017-06-30 15:57:41,994:INFO:Added euler to all
+2017-06-30 15:57:42,072:INFO:Created new CloudShell User: gauss
+2017-06-30 15:57:42,129:INFO:Added gauss to all
+2017-06-30 15:57:42,184:INFO:Created new CloudShell User: test
+2017-06-30 15:57:42,241:INFO:Added test to all
+2017-06-30 15:57:42,242:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 15:57:42,546:INFO:Created new CloudShell User: einstein
+2017-06-30 15:57:42,628:INFO:Added einstein to all
+2017-06-30 15:57:42,716:INFO:Created new CloudShell User: galieleo
+2017-06-30 15:57:42,769:INFO:Added galieleo to all
+2017-06-30 15:57:42,827:INFO:Created new CloudShell User: tesla
+2017-06-30 15:57:42,904:INFO:Added tesla to all
+2017-06-30 15:57:42,959:INFO:Created new CloudShell User: newton
+2017-06-30 15:57:43,012:INFO:Added newton to all
+2017-06-30 15:57:43,071:INFO:Created new CloudShell User: training
+2017-06-30 15:57:43,148:INFO:Added training to all
+2017-06-30 15:57:43,148:INFO:Running deactivation subroutine
+2017-06-30 15:58:54,574:INFO:Starting LDAP Session
+2017-06-30 15:58:54,575:INFO:Running LDAP user import subroutine
+2017-06-30 15:58:54,575:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 15:58:54,868:INFO:Created new CloudShell User: euclid
+2017-06-30 15:58:54,946:INFO:Added euclid to all
+2017-06-30 15:58:55,023:INFO:Created new CloudShell User: riemann
+2017-06-30 15:58:55,085:INFO:Added riemann to all
+2017-06-30 15:58:55,138:INFO:Created new CloudShell User: euler
+2017-06-30 15:58:55,213:INFO:Added euler to all
+2017-06-30 15:58:55,297:INFO:Created new CloudShell User: gauss
+2017-06-30 15:58:55,372:INFO:Added gauss to all
+2017-06-30 15:58:55,456:INFO:Created new CloudShell User: test
+2017-06-30 15:58:55,532:INFO:Added test to all
+2017-06-30 15:58:55,533:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 15:58:55,827:INFO:Created new CloudShell User: einstein
+2017-06-30 15:58:55,904:INFO:Added einstein to all
+2017-06-30 15:58:55,980:INFO:Created new CloudShell User: galieleo
+2017-06-30 15:58:56,056:INFO:Added galieleo to all
+2017-06-30 15:58:56,133:INFO:Created new CloudShell User: tesla
+2017-06-30 15:58:56,207:INFO:Added tesla to all
+2017-06-30 15:58:56,284:INFO:Created new CloudShell User: newton
+2017-06-30 15:58:56,360:INFO:Added newton to all
+2017-06-30 15:58:56,438:INFO:Created new CloudShell User: training
+2017-06-30 15:58:56,513:INFO:Added training to all
+2017-06-30 15:58:56,513:INFO:Running deactivation subroutine
+2017-06-30 15:58:57,171:INFO:Deactivated User: deactivate_me
+2017-06-30 15:58:57,849:INFO:Running subgroup ordering subroutine
+2017-06-30 15:58:57,849:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:22:33,315:INFO:Starting LDAP Session
+2017-06-30 16:22:33,315:INFO:Running LDAP user import subroutine
+2017-06-30 16:22:33,315:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:22:34,017:INFO:Created new CloudShell User: euclid
+2017-06-30 16:22:34,100:INFO:Added euclid to all
+2017-06-30 16:22:34,178:INFO:Created new CloudShell User: riemann
+2017-06-30 16:22:34,254:INFO:Added riemann to all
+2017-06-30 16:22:34,333:INFO:Created new CloudShell User: euler
+2017-06-30 16:22:34,409:INFO:Added euler to all
+2017-06-30 16:22:34,493:INFO:Created new CloudShell User: gauss
+2017-06-30 16:22:34,571:INFO:Added gauss to all
+2017-06-30 16:22:34,653:INFO:Created new CloudShell User: test
+2017-06-30 16:22:34,737:INFO:Added test to all
+2017-06-30 16:22:34,737:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:22:35,046:INFO:Created new CloudShell User: einstein
+2017-06-30 16:22:35,121:INFO:Added einstein to all
+2017-06-30 16:22:35,199:INFO:Created new CloudShell User: galieleo
+2017-06-30 16:22:35,273:INFO:Added galieleo to all
+2017-06-30 16:22:35,350:INFO:Created new CloudShell User: tesla
+2017-06-30 16:22:35,423:INFO:Added tesla to all
+2017-06-30 16:22:35,477:INFO:Created new CloudShell User: newton
+2017-06-30 16:22:35,534:INFO:Added newton to all
+2017-06-30 16:22:35,607:INFO:Created new CloudShell User: training
+2017-06-30 16:22:35,682:INFO:Added training to all
+2017-06-30 16:22:35,683:INFO:Running deactivation subroutine
+2017-06-30 16:22:47,480:INFO:Running subgroup ordering subroutine
+2017-06-30 16:22:47,480:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:23:49,725:INFO:Starting LDAP Session
+2017-06-30 16:23:49,725:INFO:Running LDAP user import subroutine
+2017-06-30 16:23:49,726:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:23:50,268:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:23:50,760:INFO:Running deactivation subroutine
+2017-06-30 16:23:55,849:INFO:Running subgroup ordering subroutine
+2017-06-30 16:23:58,653:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:34:03,284:INFO:Starting LDAP Session
+2017-06-30 16:34:03,284:INFO:Running LDAP user import subroutine
+2017-06-30 16:34:03,284:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:34:04,287:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:34:04,837:INFO:Running deactivation subroutine
+2017-06-30 16:34:59,127:INFO:Running subgroup ordering subroutine
+2017-06-30 16:35:02,239:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:40:11,410:INFO:Starting LDAP Session
+2017-06-30 16:40:11,410:INFO:Running LDAP user import subroutine
+2017-06-30 16:40:11,410:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:40:11,934:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:40:12,463:INFO:Running deactivation subroutine
+2017-06-30 16:40:18,712:INFO:Running subgroup ordering subroutine
+2017-06-30 16:40:21,993:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:40:32,278:INFO:Added User euclid to group Math Group
+2017-06-30 16:40:32,336:INFO:Added User euler to group Math Group
+2017-06-30 16:40:32,457:INFO:Added User gauss to group Math Group
+2017-06-30 16:40:32,635:INFO:Added User riemann to group Math Group
+2017-06-30 16:40:32,753:INFO:Added User test to group Math Group
+2017-06-30 16:40:32,812:INFO:query to ldap://ldap.forumsys.com ou=scientists,dc=example,dc=com
+2017-06-30 16:40:33,435:INFO:Added User einstein to group Science Group
+2017-06-30 16:40:33,612:INFO:Added User galieleo to group Science Group
+2017-06-30 16:40:33,790:INFO:Added User newton to group Science Group
+2017-06-30 16:40:33,908:INFO:Added User tesla to group Science Group
+2017-06-30 16:40:34,028:INFO:Added User training to group Science Group
+2017-06-30 16:40:34,028:INFO:COMPLETE
+2017-06-30 16:45:57,836:INFO:Starting LDAP Session
+2017-06-30 16:45:57,837:INFO:Running LDAP user import subroutine
+2017-06-30 16:45:57,837:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:45:58,767:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:45:59,203:INFO:Running deactivation subroutine
+2017-06-30 16:46:01,007:INFO:Running subgroup ordering subroutine
+2017-06-30 16:46:01,007:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:46:01,685:INFO:Added User euclid to group Math Group
+2017-06-30 16:46:01,785:INFO:Added User euler to group Math Group
+2017-06-30 16:46:01,932:INFO:Added User gauss to group Math Group
+2017-06-30 16:46:02,128:INFO:Added User riemann to group Math Group
+2017-06-30 16:46:02,278:INFO:Added User test to group Math Group
+2017-06-30 16:46:02,328:INFO:query to ldap://ldap.forumsys.com ou=scientists,dc=example,dc=com
+2017-06-30 16:46:02,938:INFO:Added User einstein to group Science Group
+2017-06-30 16:46:03,132:INFO:Added User galieleo to group Science Group
+2017-06-30 16:46:03,326:INFO:Added User newton to group Science Group
+2017-06-30 16:46:03,475:INFO:Added User tesla to group Science Group
+2017-06-30 16:46:03,625:INFO:Added User training to group Science Group
+2017-06-30 16:46:03,625:INFO:COMPLETE
+2017-06-30 16:47:31,687:INFO:Starting LDAP Session
+2017-06-30 16:47:31,687:INFO:Running LDAP user import subroutine
+2017-06-30 16:47:31,687:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:47:32,145:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:47:32,579:INFO:Running deactivation subroutine
+2017-06-30 16:47:34,152:INFO:Running subgroup ordering subroutine
+2017-06-30 16:47:34,152:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:47:34,930:INFO:Removed user euclid from group Math Group
+2017-06-30 16:47:35,073:INFO:Removed user euler from group Math Group
+2017-06-30 16:47:35,267:INFO:Removed user gauss from group Math Group
+2017-06-30 16:47:35,554:INFO:Removed user riemann from group Math Group
+2017-06-30 16:47:35,742:INFO:Removed user test from group Math Group
+2017-06-30 16:47:35,887:INFO:Removed user training from group Math Group
+2017-06-30 16:47:35,887:INFO:query to ldap://ldap.forumsys.com ou=scientists,dc=example,dc=com
+2017-06-30 16:47:36,617:INFO:Removed user einstein from group Science Group
+2017-06-30 16:47:36,862:INFO:Removed user galieleo from group Science Group
+2017-06-30 16:47:37,157:INFO:Removed user newton from group Science Group
+2017-06-30 16:47:37,350:INFO:Removed user tesla from group Science Group
+2017-06-30 16:47:37,496:INFO:Removed user test from group Science Group
+2017-06-30 16:47:37,641:INFO:Removed user training from group Science Group
+2017-06-30 16:47:37,641:INFO:COMPLETE
+2017-06-30 16:48:05,429:INFO:Starting LDAP Session
+2017-06-30 16:48:05,429:INFO:Running LDAP user import subroutine
+2017-06-30 16:48:05,429:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:48:05,880:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:48:06,322:INFO:Running deactivation subroutine
+2017-06-30 16:48:08,396:INFO:Running subgroup ordering subroutine
+2017-06-30 16:48:08,397:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:48:09,116:INFO:Added User euclid to group Math Group
+2017-06-30 16:48:09,219:INFO:Added User euler to group Math Group
+2017-06-30 16:48:09,365:INFO:Added User gauss to group Math Group
+2017-06-30 16:48:09,607:INFO:Added User riemann to group Math Group
+2017-06-30 16:48:09,756:INFO:Added User test to group Math Group
+2017-06-30 16:48:09,804:INFO:query to ldap://ldap.forumsys.com ou=scientists,dc=example,dc=com
+2017-06-30 16:48:10,504:INFO:Added User einstein to group Science Group
+2017-06-30 16:48:10,709:INFO:Added User galieleo to group Science Group
+2017-06-30 16:48:10,946:INFO:Added User newton to group Science Group
+2017-06-30 16:48:11,097:INFO:Added User tesla to group Science Group
+2017-06-30 16:48:11,247:INFO:Added User training to group Science Group
+2017-06-30 16:48:11,247:INFO:COMPLETE
+2017-06-30 16:50:00,020:INFO:Starting LDAP Session
+2017-06-30 16:50:00,020:INFO:Running LDAP user import subroutine
+2017-06-30 16:50:00,020:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:50:00,841:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:50:01,333:INFO:Running deactivation subroutine
+2017-06-30 16:50:05,663:INFO:Running subgroup ordering subroutine
+2017-06-30 16:50:08,450:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:57:54,966:INFO:Starting LDAP Session
+2017-06-30 16:57:54,966:INFO:Running LDAP user import subroutine
+2017-06-30 16:57:54,966:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:57:55,743:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:57:56,265:INFO:Running deactivation subroutine
+2017-06-30 16:57:59,657:INFO:Running subgroup ordering subroutine
+2017-06-30 16:57:59,658:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:58:01,072:INFO:query to ldap://ldap.forumsys.com ou=scientists,dc=example,dc=com
+2017-06-30 16:58:02,429:INFO:COMPLETE
+2017-06-30 16:59:17,393:INFO:Starting LDAP Session
+2017-06-30 16:59:17,393:INFO:Running LDAP user import subroutine
+2017-06-30 16:59:17,393:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 16:59:17,906:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 16:59:18,410:INFO:Running deactivation subroutine
+2017-06-30 16:59:20,693:INFO:Running subgroup ordering subroutine
+2017-06-30 16:59:20,693:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 16:59:21,594:INFO:Removed user einstein from group Math Group
+2017-06-30 16:59:22,359:INFO:Removed user training from group Math Group
+2017-06-30 16:59:22,359:INFO:query to ldap://ldap.forumsys.com ou=scientists,dc=example,dc=com
+2017-06-30 16:59:23,334:INFO:Removed user euclid from group Science Group
+2017-06-30 16:59:23,952:INFO:Removed user test from group Science Group
+2017-06-30 16:59:24,016:INFO:COMPLETE
+2017-06-30 17:00:23,752:INFO:Starting LDAP Session
+2017-06-30 17:00:23,752:INFO:Running LDAP user import subroutine
+2017-06-30 17:00:23,753:INFO:query to ldap://ldap.forumsys.com: ou=mathematicians,dc=example,dc=com
+2017-06-30 17:00:24,230:INFO:query to ldap://ldap.forumsys.com: ou=scientists,dc=example,dc=com
+2017-06-30 17:00:24,750:INFO:Running deactivation subroutine
+2017-06-30 17:00:25,908:INFO:Running subgroup ordering subroutine
+2017-06-30 17:00:25,909:INFO:query to ldap://ldap.forumsys.com ou=mathematicians,dc=example,dc=com
+2017-06-30 17:00:27,283:INFO:query to ldap://ldap.forumsys.com ou=scientists,dc=example,dc=com
+2017-06-30 17:00:36,917:INFO:COMPLETE
