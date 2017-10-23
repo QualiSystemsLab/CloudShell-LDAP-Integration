@@ -9,10 +9,15 @@ import cloudshell.api.cloudshell_api as cs_api
 import json
 import base64
 import ldap
+import logging
+import os
 
 
-class ldapimport(object):
-    """Used to align CloudShell users/groups with Active Directory Users"""
+LOG_DICT = {"DEBUG": 10, "INFO": 20, "WARNING": 30, "WARN": 30, "ERROR": 40, "CRITICAL": 50, "CRIT": 50}
+
+
+class LDAPImport(object):
+    """Used to align CloudShell users/groups with LDAP Group Users"""
 
     def __init__(self):
         """
@@ -21,11 +26,18 @@ class ldapimport(object):
         :return:
         """
         # set the config file path & load the json file
-        self.json_file_path = 'config.json'
+        cwd = os.getcwd()
+        self.json_file_path = '%s/config.json' % cwd
         self.configs = json.loads(open(self.json_file_path).read())
 
         # set logging file path
-        self.logfile = self.configs['log_file_path']
+        self.logfilename = self.configs['log_file_path']
+        self.loglevel = self.configs['log_level'].upper()
+
+        # set logging
+        logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s',
+                            filename=self.logfilename,
+                            level=LOG_DICT[self.loglevel])
 
         # set the default password for new user
         self.default_password = self.configs['new_user_default_password']
@@ -37,13 +49,15 @@ class ldapimport(object):
                                                       domain="Global")
 
     # Active Directory Commands
-    def ldap_query(self, ldap_connection, ldap_user, ldap_pw, ldap_query_str, auth):
+    def ldap_query(self, ldap_connection, ldap_query_str='', ldap_user='', ldap_pw='', auth=False):
         """
         Returns a group list from an Active Directory Query
         :param self:
-        :param ad_connection: LDAP Server String
-        :param ad_user: Active Directory username for connection
-        :param ad_pw: Active Directory password for connection
+        :param str ldap_connection: LDAP Server String
+        :param str ldap_user: Active Directory username for connection
+        :param str ldap_pw: Active Directory password for connection
+        :param str ldap_query_str: LDAP Query to run
+        :param bool auth: If the LDAP Server requires login authentication
         :return:
         """
 
@@ -52,7 +66,7 @@ class ldapimport(object):
         try:
             ldap_con.protocol_version = ldap.VERSION3
             ldap_con.set_option(ldap.OPT_REFERRALS, 0)
-            if auth == 1:
+            if auth:
                 ldap_con.simple_bind_s(ldap_user, ldap_pw)
         except ldap.LDAPError as error_msg:
             print error_msg
@@ -61,8 +75,8 @@ class ldapimport(object):
 
         ad_list = ldap_con.read_s(ldap_query_str)
         for name in ad_list["uniqueMember"]:
-            parse = name.split(",", 1)
-            trash, ldap_name = parse[0].split('uid=')
+            parse = name.split(",", 1)  # this is the first line for split mod
+            trash, ldap_name = parse[0].split('uid=')  # this is the 2nd line for split mod
             name_list.append(ldap_name)
 
         return name_list
@@ -106,7 +120,7 @@ class ldapimport(object):
     def is_admin(self, user_name):
         my_user_groups = self.cs_session.GetUserDetails(user_name).Groups
         for x in my_user_groups:
-            if x.Name == "System Administrators":
+            if x.Name == "System Administrators" or x.Name == "Domain Administrators":
                 return True
         else:
             return False
@@ -138,23 +152,23 @@ def main():
 
     :rtype: object
     """
-    local = ldapimport()
-    local.write2log('---=== * Starting LDAP Run * ===---')
+    local = LDAPImport()
+    logging.info('Starting LDAP Session')
 
     master_list = []
 
-    if local.configs["do_ldap_import"] == 1:
-        local.write2log('-- Running ldap user import subroutine')
+    if local.configs["do_ldap_import"]:
+        logging.info('Running LDAP user import subroutine')
         # start adding new users
         for each in local.configs["ldap_import_DN"]:
-            local.write2log('query to ' + local.configs["ldap_connection"] + ' ' + each)
+            logging.info('query to %s: %s' %(local.configs["ldap_connection"], each))
 
             # get ldap group
             ldap_list = local.ldap_query(local.configs["ldap_connection"],
-                                        local.configs["ldap_username"],
-                                        local.configs["ldap_password"],
-                                        each,
-                                        local.configs["ldap_use_auth"])
+                                         each,
+                                         local.configs["ldap_username"],
+                                         local.configs["ldap_password"],
+                                         local.configs["ldap_use_auth"])
 
             # get CloudShell user list
             cs_list = local.load_cloudshell_users()
@@ -162,32 +176,32 @@ def main():
             # compare ldap to cs - add if not in cloudshell
             for ldap_name in ldap_list:
                 master_list.append(ldap_name)
-                if local.check_list(cs_list, ldap_name) is False:
+                if ldap_name not in cs_list:
                     local.create_cloudshell_user(ldap_name, local.configs["new_user_default_password"], '')
-                    local.write2log('Created new CloudShell User: ' + ldap_name)
-                    if local.configs["use_new_user_default_group"] == 1:
+                    logging.info('Created new CloudShell User: %s' % ldap_name)
+                    if local.configs["use_new_user_default_group"]:
                         local.assign_cloudshell_usergroup([ldap_name],
                                                           local.configs["new_user_default_group"])
-                        local.write2log('Added ' + ldap_name + ' to ' + local.configs["new_user_default_group"])
-                elif local.is_active(ldap_name) is False:
+                        logging.info('Added %s to %s' %(ldap_name, local.configs["new_user_default_group"]))
+                elif not local.is_active(ldap_name):
                     local.make_cloudshell_user_active(ldap_name)
-                    local.write2log('Acitvated User: ' + ldap_name)
+                    logging.info('Acitvated User: %s' % ldap_name)
         # end for Each - putting all new users into groups
     # end ldap import
 
-    if local.configs["do_deactivation"] == 1 and local.configs["do_ldap_import"] == 1:
-        local.write2log('-- Running deactivation subroutine')
+    if local.configs["do_deactivation"] and local.configs["do_ldap_import"]:
+        logging.info('Running deactivation subroutine')
         # get updated cs_list
         cs_list = local.load_cloudshell_users()
 
         # compare CS to LDAP and de-activate users not found
         for name in cs_list:
-            if local.check_list(master_list, name) is False:
+            if not local.check_list(master_list, name):
+                wl_check = False
                 # if using whitelist see if they are on it
-                if local.configs["qs_use_whitelist"] == 1:
-                    wl_check = local.check_list(local.configs["qs_whitelist"], name)
-                else:
-                    wl_check = False
+                if local.configs["qs_use_whitelist"]:
+                    if name in local.configs['qs_whitelist']:
+                        wl_check = True
 
                 # check to see if they are an admin
                 admin_check = local.is_admin(name)
@@ -198,52 +212,54 @@ def main():
                 else:
                     if local.is_active(name):  # de-active if active
                         local.make_cloudshell_user_inactive(name)
-                        local.write2log('Deactivated User: ' + name)
-            elif local.is_active(name) is False:  # if on master list and is inactive, activate
+                        logging.info('Deactivated User: %s' % name)
+            elif not local.is_active(name):  # if on master list and is inactive, activate
                 local.make_cloudshell_user_active(name)
-                local.write2log('Activated User: ' + name)
+                logging.info('Activated User: %s' % name)
     #end deactivation loop
 
     # start sub-group ordering
-    if local.configs["use_subgroups"] == 1:
-        local.write2log("-- Running subgroup ordering subroutine")
-        subgroup_list = local.configs["qs_subgroups"]
-        for index, each_ldap in enumerate(local.configs["ldap_subgroups"]):
-            local.write2log('query to ' + local.configs["ldap_connection"] + ' ' + each_ldap)
+    if local.configs["use_subgroups"]:
+        logging.info("Running subgroup ordering subroutine")
+        subgroup_list = local.configs["subgroup_listing"].keys()
+        for group in subgroup_list:
+            logging.info('query to %s %s' %(local.configs["ldap_connection"],
+                                            local.configs['subgroup_listing'][group]))
 
             ldap_list = local.ldap_query(local.configs["ldap_connection"],
-                            local.configs["ldap_username"],
-                            local.configs["ldap_password"],
-                            each_ldap,
-                            local.configs["ldap_use_auth"])
+                                         ldap_query_str=local.configs['subgroup_listing'][group],
+                                         ldap_user=local.configs["ldap_username"],
+                                         ldap_pw=local.configs["ldap_password"],
+                                         auth=local.configs["ldap_use_auth"])
 
             cs_list = local.load_cloudshell_users()
 
             for name in cs_list:
                 cs_user_detail = local.get_cloudshell_user_detail(name)
-                group = subgroup_list[index]
 
                 member_list = []
                 for ea in cs_user_detail.Groups:
-                    groupname = ea.Name
-                    member_list.append(groupname)
+                    # groupname = ea.Name
+                    member_list.append(ea.Name)
 
-                # if user in on the ldap subgroup list, and not already in cloudshell group, put in subgroup
-                if local.check_list(ldap_list, name) and local.check_list(member_list, group) is False:
+                # if user in on the ldap subgroup list, not a member of the group, add them to the group
+                if (name in ldap_list) and (group not in member_list):
                     local.assign_cloudshell_usergroup([name], group)
-                    local.write2log('Added User ' + name + ' to group ' + group)
+                    logging.info('Added User %s to group %s' % (name, group))
 
                 # if not in said ldap group, but are in the subgroup, pull them out
-                elif local.check_list(member_list, group):
+                elif (group in member_list) and name not in ldap_list:
                     if local.is_admin(name) is False:
-                        if local.configs["qs_use_whitelist"] == 1:
-                            if local.check_list(local.configs["qs_whitelist"], name) is False:
-                                local.write2log('Removing user ' + name + ' from group ' + group)
+                        if local.configs["qs_use_whitelist"]:
+                            if name not in local.configs["qs_whitelist"]:
                                 local.remove_cloudshell_usergroup([name], group)
-
+                                logging.info('Removed user %s from group %s' % (name, group))
+                        else:
+                            local.remove_cloudshell_usergroup([name], group)
+                            logging.info('Removed user %s from group %s' % (name, group))
     # end subgroup ordering
 
-    local.write2log(">> COMPLETE <<")
+    logging.info("COMPLETE")
 
 ################################################################
 
